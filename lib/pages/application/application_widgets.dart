@@ -2,10 +2,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop/common/values/colors.dart';
+import 'package:flutter_shop/pages/home/home_page.dart';
 
 Widget buildPage(int index){
   List<Widget> _widget = [
-    Center(child: Text("Home"),),
+    HomePage(),
     Center(child: Text("Search"),),
     Center(child: Text("Course"),),
     Center(child: Text("Chat"),),

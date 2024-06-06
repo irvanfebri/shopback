@@ -1,10 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:flutter_shop/common/routes/names.dart';
+import 'package:flutter_shop/global.dart';
 import 'package:flutter_shop/pages/application/application_page.dart';
 import 'package:flutter_shop/pages/application/bloc/app_blocs.dart';
+import 'package:flutter_shop/pages/home/bloc/home_pages_blocs.dart';
+import 'package:flutter_shop/pages/home/home_page.dart';
 import 'package:flutter_shop/pages/register/bloc/register_bloc.dart';
 import 'package:flutter_shop/pages/register/register.dart';
 import 'package:flutter_shop/pages/sign_in/bloc/sign_in_bloc.dart';
@@ -36,6 +38,11 @@ class AppPages {
           page:ApplicationPage(),
           bloc:BlocProvider(create: (_) => AppBlocs())
       ),
+      PageEntity(
+          route:AppRoutes.Home,
+          page:HomePage(),
+          bloc:BlocProvider(create: (_) => HomePageBlocs())
+      ),
     ];
   }
 
@@ -55,7 +62,14 @@ class AppPages {
     if(settings.name!=null){
       var result = Routes().where((element) => element.route==settings.name);
       if(result.isNotEmpty){
-
+        bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
+        if(result.first.route==AppRoutes.INITIAL && deviceFirstOpen){
+          bool isLogin = Global.storageService.getIsLogin();
+          if(isLogin){
+            return MaterialPageRoute<void>(builder: (_) => ApplicationPage(),settings: settings);
+          }
+          return MaterialPageRoute<void>(builder: (_) => SignIn(),settings: settings);
+        }
         return MaterialPageRoute<void>(builder: (_) => result.first.page,settings: settings);
       }
     }

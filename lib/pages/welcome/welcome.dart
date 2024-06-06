@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_shop/common/values/colors.dart';
 import 'package:flutter_shop/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:flutter_shop/pages/welcome/bloc/welcome_events.dart';
 import 'package:flutter_shop/pages/welcome/bloc/welcome_states.dart';
@@ -20,7 +21,7 @@ class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: AppColors.primaryElementText,
       child: Scaffold(body: BlocBuilder<WelcomeBlocs, WelcomeStates>(
           builder: (BuildContext context, WelcomeStates state) {
         return Container(
@@ -66,8 +67,8 @@ class _WelcomeState extends State<Welcome> {
                       dotsCount: 3,
                       position: state.page,
                       decorator: DotsDecorator(
-                        color: Colors.grey,
-                        activeColor: Colors.blue,
+                        color: AppColors.primaryThreeElementText,
+                        activeColor: AppColors.primaryElement,
                         size: const Size.square(8.0),
                         activeSize: const Size(18.0, 8.0),
                         activeShape: RoundedRectangleBorder(
@@ -93,7 +94,7 @@ class _WelcomeState extends State<Welcome> {
           child: Text(
             title,
             style: TextStyle(
-                color: Colors.black,
+                color: AppColors.primaryText,
                 fontSize: 24.sp,
                 fontWeight: FontWeight.normal),
           ),
@@ -103,7 +104,7 @@ class _WelcomeState extends State<Welcome> {
           child: Text(
             subTitle,
             style: TextStyle(
-                color: Colors.black.withOpacity(0.5),
+                color: AppColors.primarySecondaryElementText,
                 fontSize: 14.sp,
                 fontWeight: FontWeight.normal),
           ),
@@ -114,11 +115,11 @@ class _WelcomeState extends State<Welcome> {
                 height: 50.h,
                 margin: EdgeInsets.only(top: 100.h, left: 25.w, right: 25.w),
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: AppColors.primaryElement,
                   borderRadius: BorderRadius.all(Radius.circular(15.w)),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
+                      color: AppColors.primaryFourElementText,
                       spreadRadius: 1,
                       blurRadius: 2,
                       offset: Offset(0, 1), // changes position of shadow
@@ -130,7 +131,7 @@ class _WelcomeState extends State<Welcome> {
                   buttonName,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: AppColors.primaryBackground,
                     fontWeight: FontWeight.normal,
                     fontSize: 16.sp,
                   ),
@@ -145,10 +146,7 @@ class _WelcomeState extends State<Welcome> {
               } else {
                 //Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
                 ///myHomePage
-                // Navigator.pushNamedAndRemoveUntil(context, "/myHomePage", (route) => false);
-                  Navigator.pushNamedAndRemoveUntil(context, "/signIn", (route) => false);
-                
-                
+                Navigator.pushNamedAndRemoveUntil(context, "/signIn", (route) => false);
               }
             })
       ],

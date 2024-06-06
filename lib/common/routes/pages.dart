@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_shop/app_blocs.dart';
+
 import 'package:flutter_shop/common/routes/names.dart';
 import 'package:flutter_shop/pages/application/application_page.dart';
+import 'package:flutter_shop/pages/application/bloc/app_blocs.dart';
 import 'package:flutter_shop/pages/register/bloc/register_bloc.dart';
 import 'package:flutter_shop/pages/register/register.dart';
 import 'package:flutter_shop/pages/sign_in/bloc/sign_in_bloc.dart';

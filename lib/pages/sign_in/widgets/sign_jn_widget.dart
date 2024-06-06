@@ -1,11 +1,13 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_shop/common/values/colors.dart';
 
 AppBar buildAppBar() {
   return AppBar(
       bottom: PreferredSize(
           child: Container(
-            color: Colors.grey.withOpacity(0.5),
+            color: AppColors.primarySecondaryBackground,
             height: 1.0,
           ),
           preferredSize: Size.fromHeight(1.0)),
@@ -13,7 +15,7 @@ AppBar buildAppBar() {
       title: Text(
         "Log In",
         style: TextStyle(
-          color: Colors.black,
+          color: AppColors.primaryText,
           fontSize: 16.sp,
           fontWeight: FontWeight.normal,
         ),
@@ -54,7 +56,7 @@ Widget reusableText(String text){
       text,
       textAlign: TextAlign.center,
       style: TextStyle(
-        color: Colors.grey.withOpacity(0.5),
+        color: AppColors.primaryThreeElementText,
         fontWeight: FontWeight.normal,
         fontSize: 14.sp,
       ),
@@ -62,14 +64,14 @@ Widget reusableText(String text){
   );
 }
 
-Widget buildTextField(String hintText, String textType,String iconName){
+Widget buildTextField(String hintText, String textType,String iconName,Function(String value)? changed){
   return Container(
     width: 325.w,
     height: 50.h,
     decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(15.w)),
-        border: Border.all(color: Colors.black)),
+        border: Border.all(color: AppColors.primaryThreeElementText)),
     child: Row(
       children: [
         Container(
@@ -83,6 +85,7 @@ Widget buildTextField(String hintText, String textType,String iconName){
           height: 50.h,
           child: TextField(
             keyboardType: TextInputType.multiline,
+            onChanged: changed,
             decoration: InputDecoration(
               hintText: hintText,
               contentPadding: EdgeInsets.fromLTRB(5, 0, 5, 0),
@@ -111,7 +114,7 @@ Widget buildTextField(String hintText, String textType,String iconName){
               ),
             ),
             style: TextStyle(
-              color: Colors.black,
+              color: AppColors.primaryText,
               fontFamily: "Avenir",
               fontWeight: FontWeight.normal,
               fontSize: 12.sp,
@@ -134,9 +137,9 @@ Widget forgotPassword(){
           "Forgot password?",
           textAlign: TextAlign.left,
           style: TextStyle(
-            color: Colors.black,
+            color: AppColors.primaryText,
             decoration: TextDecoration.underline,
-            decorationColor: Colors.blue,
+            decorationColor: AppColors.primaryElement,
             fontWeight: FontWeight.normal,
             fontSize: 12.sp,
           ),
@@ -146,27 +149,25 @@ Widget forgotPassword(){
   );
 }
 
-Widget buildLogInAndRegButton(String buttonName, String buttonType){
+Widget buildLogInAndRegButton(String buttonName, String buttonType,Function()? func){
   return GestureDetector(
       child: Container(
           width: 325.w,
           height: 50.h,
           margin: EdgeInsets.only(top: buttonType=="login"?40.h:20.h, left: 0.w, right: 0.w),
           decoration: BoxDecoration(
-              color: Colors.blue,
+              color:  buttonType=="login"?AppColors.primaryElement:AppColors.primaryBackground,
               borderRadius: BorderRadius.all(Radius.circular(15.w)),
-              border: Border.all(color: Colors.grey.withOpacity(0.5))),
+              border: Border.all(color: buttonType=="login"?Colors.transparent:AppColors.primaryFourElementText)),
           child: Center(
               child: Text(
                 buttonName,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: buttonType=="login"?AppColors.primaryElementText:AppColors.primaryText,
                   fontWeight: FontWeight.normal,
                   fontSize: 16.sp,
                 ),
               ))),
-      onTap: () {
-
-      });
+      onTap: func);
 }

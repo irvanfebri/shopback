@@ -1,8 +1,14 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop/common/values/colors.dart';
 import 'package:flutter_shop/pages/application/application_widgets.dart';
+import 'package:flutter_shop/pages/application/bloc/app_events.dart';
+
+import 'bloc/app_blocs.dart';
+import 'bloc/app_states.dart';
 
 class ApplicationPage extends StatefulWidget {
   const ApplicationPage({super.key});
@@ -11,14 +17,14 @@ class ApplicationPage extends StatefulWidget {
 }
 
 class _ApplicationPageState extends State<ApplicationPage> {
-  int _index = 0;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return BlocBuilder<AppBlocs, AppStates>(
+        builder: (context, state) {return Container(
       color: Colors.white,
       child: SafeArea(
           child: Scaffold(
-              body: buildPage(_index),
+              body: buildPage(state.index),
               bottomNavigationBar: Container(
                   width: 375.w,
                   height: 58.h,
@@ -38,110 +44,17 @@ class _ApplicationPageState extends State<ApplicationPage> {
                   ),
                   child: BottomNavigationBar(
                     onTap: (value) {
-                      setState(() {
-                        _index = value;
-                      });
+                     context.read<AppBlocs>().add(TriggerAppEvent(value));
                     },
-                    currentIndex: _index,
+                    currentIndex: state.index,
                     elevation: 0,
                     type: BottomNavigationBarType.fixed,
                     showSelectedLabels: false,
                     showUnselectedLabels: false,
                     unselectedItemColor: AppColors.primaryFourElementText,
                     selectedItemColor: AppColors.primaryElement,
-                    items: [
-                      BottomNavigationBarItem(
-                        icon: SizedBox(
-                          width: 15.w,
-                          height: 15.h,
-                          child: Image.asset(
-                            "assets/icons/home.png",
-                          ),
-                        ),
-                        activeIcon: SizedBox(
-                          width: 15.w,
-                          height: 15.h,
-                          child: Image.asset(
-                            "assets/icons/home.png",
-                            color: AppColors.primaryElement,
-                          ),
-                        ),
-                        label: "home",
-                      ),
-                      BottomNavigationBarItem(
-                        icon: SizedBox(
-                          width: 15.w,
-                          height: 15.h,
-                          child: Image.asset(
-                            "assets/icons/search2.png",
-                          ),
-                        ),
-                        activeIcon: SizedBox(
-                          width: 15.w,
-                          height: 15.h,
-                          child: Image.asset(
-                            "assets/icons/search2.png",
-                            color: AppColors.primaryElement,
-                          ),
-                        ),
-                        label: "search",
-                      ),
-                      BottomNavigationBarItem(
-                        icon: SizedBox(
-                          width: 15.w,
-                          height: 15.h,
-                          child: Image.asset(
-                            "assets/icons/play-circle1.png",
-                          ),
-                        ),
-                        activeIcon: SizedBox(
-                          width: 15.w,
-                          height: 15.h,
-                          child: Image.asset(
-                            "assets/icons/play-circle1.png",
-                            color: AppColors.primaryElement,
-                          ),
-                        ),
-                        label: "search",
-                      ),
-                      BottomNavigationBarItem(
-                        icon: SizedBox(
-                          width: 15.w,
-                          height: 15.h,
-                          child: Image.asset(
-                            "assets/icons/message-circle.png",
-                          ),
-                        ),
-                        activeIcon: SizedBox(
-                          width: 15.w,
-                          height: 15.h,
-                          child: Image.asset(
-                            "assets/icons/message-circle.png",
-                            color: AppColors.primaryElement,
-                          ),
-                        ),
-                        label: "search",
-                      ),
-                      BottomNavigationBarItem(
-                        icon: SizedBox(
-                          width: 15.w,
-                          height: 15.h,
-                          child: Image.asset(
-                            "assets/icons/person2.png",
-                          ),
-                        ),
-                        activeIcon: SizedBox(
-                          width: 15.w,
-                          height: 15.h,
-                          child: Image.asset(
-                            "assets/icons/person2.png",
-                            color: AppColors.primaryElement,
-                          ),
-                        ),
-                        label: "search",
-                      ),
-                    ],
+                    items: bottomTabs,
                   )))),
-    );
+    );});
   }
 }

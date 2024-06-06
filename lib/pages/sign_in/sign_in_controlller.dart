@@ -1,7 +1,9 @@
 
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_shop/common/routes/names.dart';
 import 'package:flutter_shop/common/widgets/flutter_toast.dart';
 import 'package:flutter_shop/pages/sign_in/bloc/sign_in_bloc.dart';
 
@@ -27,13 +29,10 @@ class SignInController{
           if(!credential.user!.emailVerified){}
           var user = credential.user;
           if(user!=null){
-
+            Navigator.of(context).pushNamedAndRemoveUntil(AppRoutes.Application,(route)=>false);
           }else{
-
+            toastInfo(msg: "Currently you are not a user of this app.");
           }
-
-
-
         } on FirebaseAuthException catch (e) {
           if (e.code == 'user-not-found') {
             print('No user found for that email.');

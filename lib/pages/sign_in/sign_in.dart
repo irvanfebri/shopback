@@ -4,13 +4,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_shop/common/routes/names.dart';
 import 'package:flutter_shop/common/values/colors.dart';
+import 'package:flutter_shop/pages/common_widgets.dart';
+
 import 'package:flutter_shop/pages/sign_in/bloc/sign_in_bloc.dart';
 import 'package:flutter_shop/pages/sign_in/bloc/sign_in_events.dart';
 import 'package:flutter_shop/pages/sign_in/bloc/sign_in_states.dart';
 import 'package:flutter_shop/pages/sign_in/sign_in_controlller.dart';
 
-import '../common_widgets.dart';
+
 
 
 class SignIn extends StatefulWidget {
@@ -31,7 +34,7 @@ class _SignInState extends State<SignIn> {
         child: SafeArea(
           child: Scaffold(
             backgroundColor: AppColors.primaryBackground,
-            appBar: buildAppBar("Sign In"),
+            appBar: buildAppBar("Sign"),
             body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +63,7 @@ class _SignInState extends State<SignIn> {
                           SignInController(context: context).handleSignIn("email");
                         }),
                         buildLogInAndRegButton("Register", "register",(){
-                          Navigator.of(context).pushNamed("/register");
+                          Navigator.of(context).pushNamed(AppRoutes.Register);
                         }),
                       ],
                     ),

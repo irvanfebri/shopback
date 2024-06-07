@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                   horizontal: 25.w,
                 ),
                 sliver: SliverToBoxAdapter(
-                    child: homePageText("Hello,",color: AppColors.primaryThreeElementText,top:20)
+                    child: homePageText("Hello,",color: AppColors.primaryThirdElementText,top:20)
                 )
             ),
             SliverPadding(

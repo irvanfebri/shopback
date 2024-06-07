@@ -71,7 +71,7 @@ class _RegisterPage extends State<Register> {
                                  textAlign: TextAlign.left,
                                  maxLines: 2,
                                  style: TextStyle(
-                                   color: AppColors.primaryThreeElementText,
+                                   color: AppColors.primaryThirdElementText,
                                    fontWeight: FontWeight.normal,
                                    fontSize: 12.sp,
                                  ),

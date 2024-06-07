@@ -67,7 +67,7 @@ class _WelcomeState extends State<Welcome> {
                       dotsCount: 3,
                       position: state.page,
                       decorator: DotsDecorator(
-                        color: AppColors.primaryThreeElementText,
+                        color: AppColors.primaryThirdElementText,
                         activeColor: AppColors.primaryElement,
                         size: const Size.square(8.0),
                         activeSize: const Size(18.0, 8.0),
@@ -119,7 +119,7 @@ class _WelcomeState extends State<Welcome> {
                   borderRadius: BorderRadius.all(Radius.circular(15.w)),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.primaryFourElementText,
+                      color: AppColors.primaryFourthElementText,
                       spreadRadius: 1,
                       blurRadius: 2,
                       offset: Offset(0, 1), // changes position of shadow

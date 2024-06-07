@@ -56,7 +56,7 @@ Widget reusableText(String text){
       text,
       textAlign: TextAlign.center,
       style: TextStyle(
-        color: AppColors.primaryThreeElementText,
+        color: AppColors.primaryThirdElementText,
         fontWeight: FontWeight.normal,
         fontSize: 14.sp,
       ),
@@ -71,7 +71,7 @@ Widget buildTextField(String hintText, String textType,String iconName,Function(
     decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(15.w)),
-        border: Border.all(color: AppColors.primaryThreeElementText)),
+        border: Border.all(color: AppColors.primaryThirdElementText)),
     child: Row(
       children: [
         Container(
@@ -158,7 +158,7 @@ Widget buildLogInAndRegButton(String buttonName, String buttonType,Function()? f
           decoration: BoxDecoration(
               color:  buttonType=="login"?AppColors.primaryElement:AppColors.primaryBackground,
               borderRadius: BorderRadius.all(Radius.circular(15.w)),
-              border: Border.all(color: buttonType=="login"?Colors.transparent:AppColors.primaryFourElementText)),
+              border: Border.all(color: buttonType=="login"?Colors.transparent:AppColors.primaryFourthElementText)),
           child: Center(
               child: Text(
                 buttonName,

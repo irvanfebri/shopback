@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop/common/values/colors.dart';
 import 'package:flutter_shop/pages/home/home_page.dart';
+import 'package:flutter_shop/pages/profile/profile.dart';
 
 Widget buildPage(int index){
   List<Widget> _widget = [
@@ -10,7 +11,8 @@ Widget buildPage(int index){
     Center(child: Text("Search"),),
     Center(child: Text("Course"),),
     Center(child: Text("Chat"),),
-    Center(child: Text("Profile"),),
+    //Center(child: Text("Profile"),),
+    ProfilePage(),
   ];
   return _widget[index];
 

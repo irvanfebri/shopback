@@ -69,7 +69,7 @@ Widget searchView() {
           decoration: BoxDecoration(
               color: AppColors.primaryBackground,
               borderRadius: BorderRadius.all(Radius.circular(15.h)),
-              border: Border.all(color: AppColors.primaryFourElementText)),
+              border: Border.all(color: AppColors.primaryFourthElementText)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -88,7 +88,7 @@ Widget searchView() {
                   decoration: InputDecoration(
                     hintText: "Search your course...",
                     hintStyle: TextStyle(
-                      color: AppColors.primaryThreeElementText,
+                      color: AppColors.primaryThirdElementText,
                     ),
                     contentPadding: EdgeInsets.fromLTRB(5, 0, 5, 0),
                     border: OutlineInputBorder(
@@ -172,7 +172,7 @@ Widget sliderView(BuildContext context,HomePageStates state) {
             dotsCount: 3,
             position: state.index,
             decorator: DotsDecorator(
-              color: AppColors.primaryThreeElementText,
+              color: AppColors.primaryThirdElementText,
               activeColor: AppColors.primaryElement,
               size: const Size.square(5.0),
               activeSize: const Size(17.0, 5.0),
@@ -224,7 +224,7 @@ Widget menuView(BuildContext context, state) {
                 child: Text(
                   "See All",
                   style: TextStyle(
-                    color: AppColors.primaryThreeElementText,
+                    color: AppColors.primaryThirdElementText,
                     fontWeight: FontWeight.normal,
                     fontSize: 10.sp,
                   ),
@@ -259,7 +259,7 @@ Widget menuView(BuildContext context, state) {
                 child: Text(
                   "Popular",
                   style: TextStyle(
-                    color: AppColors.primaryThreeElementText,
+                    color: AppColors.primaryThirdElementText,
                     fontWeight: FontWeight.normal,
                     fontSize: 11.sp,
                   ),
@@ -270,7 +270,7 @@ Widget menuView(BuildContext context, state) {
                 child: Text(
                   "Newest",
                   style: TextStyle(
-                    color: AppColors.primaryThreeElementText,
+                    color: AppColors.primaryThirdElementText,
                     fontWeight: FontWeight.normal,
                     fontSize: 11.sp,
                   ),
@@ -320,7 +320,7 @@ GestureDetector gridView(){
                     softWrap: false,
                     style: TextStyle(
                       color:
-                      AppColors.primaryFourElementText,
+                      AppColors.primaryFourthElementText,
                       fontWeight: FontWeight.normal,
                       fontSize: 8.sp,
                     ),

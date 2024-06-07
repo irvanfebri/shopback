@@ -29,7 +29,7 @@ class SignInController{
           if(!credential.user!.emailVerified){}
           var user = credential.user;
           if(user!=null){
-            Navigator.of(context).pushNamedAndRemoveUntil(AppRoutes.Application,(route)=>false);
+            Navigator.of(context).pushNamedAndRemoveUntil(AppRoutes.APPLICATION,(route)=>false);
           }else{
             toastInfo(msg: "Currently you are not a user of this app.");
           }
